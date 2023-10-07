@@ -2,8 +2,8 @@ import { useState,useEffect } from "react";
 
 const useFetch = (url) => {
     const [error, setError]= useState(null)
-    const [datas, setDatas] = useState(null);
     const [isPending, setIsPending] = useState(true);
+    const [datas, setDatas] = useState(null);
 
 
 useEffect(() =>{
@@ -16,9 +16,8 @@ useEffect(() =>{
             return res.json();
     })
     .then(data => {
-        console.log(data);
-        setDatas(data);
         setIsPending(false);
+        setDatas(data);
         setError(null)
     })
     .catch (err =>{
